@@ -1,0 +1,12 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:zklogin/wenimal_address.dart';
+
+void main() {
+  test('sui address test', () async {
+    final String userSalt = '178325214277756936057804824740577021427';
+    final String jwt =
+        "eyJhbGciOiJSUzI1NiIsImtpZCI6IjZjZTExYWVjZjllYjE0MDI0YTQ0YmJmZDFiY2Y4YjMyYTEyMjg3ZmEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI1NzMxMjAwNzA4NzEtMGs3Z2E2bnM3OWllMGpwZzFlaTZpcDV2amUyb3N0dDYuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI1NzMxMjAwNzA4NzEtMGs3Z2E2bnM3OWllMGpwZzFlaTZpcDV2amUyb3N0dDYuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ4MDE0NjEwMjExMTQyOTkwNjgiLCJub25jZSI6IjZ5Y0tHVEJUcnBvTy03VlZWSmlJTG5yZndjayIsIm5iZiI6MTcxMzMyNzY3MywiaWF0IjoxNzEzMzI3OTczLCJleHAiOjE3MTMzMzE1NzMsImp0aSI6IjIzMzJjNjg4OTczZmU4Yjg3YTIyZjMxNTU1MjZhNjAxZGZhYTZmZGEifQ.ULTmK70bMe__B1H3VEOL65J4HBF02E9edcX6yGn2veIRVTGQLZvN3e1uvs8X175DAwmgTUriqvWPSMJ27KKWcbmcjiS6NOj5UA7OejYe0ZUSovAiFMkuzNBUEi9T_vR2dLgXeG6HquFKAj67vb1QuQiitBXoAP4HFqMfA80Oa_CGdVxU8s3DQHeEjKeAiyngtry0VyUOSvDbEfHoRVJlRPo7ozrJsLX-YtopVgAnRkPzl7oAZenDbfEhhVW02mPvHly2R8nBhXrO4oECtuycC2ZYtRMvJmATZT_7lje9Fkj5L50mk4pFYsfdzhaKk3LkwBXp7V8e1hrr5EU4M_ZrKg";
+    String suiAddress = jwtToAddress(jwt, BigInt.parse(userSalt));
+    print('sui address: $suiAddress');
+  });
+}
