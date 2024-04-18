@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:zklogin/provider/login_provider.dart';
+import 'package:zklogin/wenimal_proof.dart';
 
 import '../model/request_proof_model.dart';
-import '../wenimal_nonce.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -89,19 +88,14 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        future: getInfoRequestProof(),
+        future: getRequestProofInput(),
         builder: (BuildContext context,
             AsyncSnapshot<Map<String, dynamic>> snapshot) {
           if (snapshot.hasData) {
             Map<String, dynamic> res = snapshot.data!;
             String URL =
                 'https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?client_id=1083467233418-i6est2jg0mbd59ptddrf6elh2kg7uvf4.apps.googleusercontent.com&response_type=id_token&redirect_uri=$REDIRECT_URL&scope=openid&nonce=${res['nonce']}&service=lso&o2v=2&theme=mn&ddm=0&flowName=GeneralOAuthFlow';
-            RequestProofModel requestProofModel = RequestProofModel(
-              extendedEphemeralPublicKey: res['extendedEphemeralPublicKey']!,
-              maxEpoch: res['maxEpoch']!,
-              jwtRandomness: res['jwtRandomness']!,
-              salt: res['salt']!,
-            );
+            RequestProofModel requestProofModel = res['requestProofModel'];
             print('ephemeralPrivateKey: ${res['ephemeralPrivateKey']}');
             return Stack(
               children: [
