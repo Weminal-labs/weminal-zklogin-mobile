@@ -1,2 +1,2 @@
-## zkSend Mobile
-Sui zkSend Dart SDK
+## zkLogin Mobile
+Sui zklogin Dart SDK
